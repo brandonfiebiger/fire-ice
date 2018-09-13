@@ -7,7 +7,8 @@ import { fakeAction } from '../../actions';
 import { fetchHouseData } from '../../utils/apiCalls';
 import { getGamesOfThrones } from '../../actions'
 import CardContainer from '../CardContainer/CardContainer';
-class App extends Component {
+
+export class App extends Component {
   constructor() {
     super();
 
@@ -50,7 +51,7 @@ App.propTypes = {
 const mapStateToProps = ({ fake }) => ({ fake });
 
 
-const mapDispatchToProps = dispatch => ({ 
+export const mapDispatchToProps = dispatch => ({ 
   getGames: (games) => dispatch(getGamesOfThrones(games))
 });
 
