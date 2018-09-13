@@ -20,7 +20,7 @@ class CardContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
    games: state.gamesOfThrones
   });
 

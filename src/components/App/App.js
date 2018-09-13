@@ -48,12 +48,9 @@ App.propTypes = {
   fakeAction: func.isRequired
 };
 
-const mapStateToProps = ({ fake }) => ({ fake });
-
-
 export const mapDispatchToProps = dispatch => ({ 
   getGames: (games) => dispatch(getGamesOfThrones(games))
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
