@@ -43,10 +43,6 @@ export class App extends Component {
   }
 }
 
-App.propTypes = {
-  fake: shape({ fake: string }),
-  fakeAction: func.isRequired
-};
 
 export const mapDispatchToProps = dispatch => ({ 
   getGames: (games) => dispatch(getGamesOfThrones(games))

@@ -22,7 +22,6 @@ export class Card extends Component {
       this.setState({
         fetchedSwornMembers
       })
-      console.log(this.state)
     }
   }
 
