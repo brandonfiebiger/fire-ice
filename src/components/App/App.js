@@ -4,12 +4,33 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { fakeAction } from '../../actions';
+import { fetchHouseData } from '../../utils/apiCalls';
+import { getGamesOfThrones } from '../../actions'
+import CardContainer from '../CardContainer/CardContainer';
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      loading: true
+    }
+  }
+
+
+  async componentDidMount() {
+    const gameOfThrones = await fetchHouseData()
+    this.props.getGames(gameOfThrones);
+    this.setState({
+      loading: false
+    })
+  }
 
   render() {
+    const { loading } = this.state;
     return (
       <div className='App'>
         <div className='App-header'>
+        {loading ? <img src='./wolf.gif'/> : ''}
           <img src={logo} className='App-logo' alt='logo' />
           <h2>Welcome to Westeros</h2>
           <button onClick={() => {
@@ -18,6 +39,7 @@ class App extends Component {
           }}> FAKE ACTION</button>
         </div>
         <div className='Display-info'>
+          <CardContainer />
         </div>
       </div>
     );
@@ -30,7 +52,12 @@ App.propTypes = {
 };
 
 const mapStateToProps = ({ fake }) => ({ fake });
-const mapDispatchToProps = dispatch => ({ fakeAction:
-  () => dispatch(fakeAction())
+
+
+const mapDispatchToProps = dispatch => ({ 
+  fakeAction: () => dispatch(fakeAction()),
+  getGames: (games) => dispatch(getGamesOfThrones(games))
 });
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
