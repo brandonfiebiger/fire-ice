@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import { fake } from './fake-reducer';
+import { gamesOfThronesReducer } from './gamesOfThrones-reducer'
 
 const rootReducer = combineReducers({
-  fake
+  fake,
+  gamesOfThrones: gamesOfThronesReducer
 });
 
 

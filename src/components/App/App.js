@@ -5,12 +5,13 @@ import './App.css';
 import { connect } from 'react-redux';
 import { fakeAction } from '../../actions';
 import { fetchHouseData } from '../../utils/apiCalls';
+import { getGamesOfThrones } from '../../actions'
 class App extends Component {
 
 
   async componentDidMount() {
     const gameOfThrones = await fetchHouseData()
-    console.log(gameOfThrones);
+    this.props.getGames(gameOfThrones);
   }
 
   render() {
@@ -40,7 +41,8 @@ const mapStateToProps = ({ fake }) => ({ fake });
 
 
 const mapDispatchToProps = dispatch => ({ 
-  fakeAction: () => dispatch(fakeAction())
+  fakeAction: () => dispatch(fakeAction()),
+  getGames: (games) => dispatch(getGamesOfThrones(games))
 });
 
 
