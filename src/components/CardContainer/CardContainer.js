@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import  { Card }  from '../Card/Card';
 
 class CardContainer extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
   }
 
-
   render() {
+    const displayCards = this.props.games.map(game => {
+        return <Card {...game}/>
+      })
     return(
-      <section class="Container">
-        cards
+      <section className="Container">
+        {displayCards}
       </section>
     )
   }
