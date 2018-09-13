@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 
-class Card extends Component {
+export class Card extends Component {
   constructor() {
     super()
   }
 
-  
+  render() {
+    return(
+      <article className="Card">
+        Card
+      </article>
+    )
+  }
 }
+
+export default Card;

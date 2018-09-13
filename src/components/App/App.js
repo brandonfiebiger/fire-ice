@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='App-header'>
-        {loading ? <img src='./wolf.gif'/> : ''}
+        {loading ? <img src='./wolf.gif'/> : <p></p>}
           <img src={logo} className='App-logo' alt='logo' />
           <h2>Welcome to Westeros</h2>
           <button onClick={() => {
