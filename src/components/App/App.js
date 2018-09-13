@@ -4,7 +4,14 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { fakeAction } from '../../actions';
+import { fetchHouseData } from '../../utils/apiCalls';
 class App extends Component {
+
+
+  async componentDidMount() {
+    const gameOfThrones = await fetchHouseData()
+    console.log(gameOfThrones);
+  }
 
   render() {
     return (
@@ -30,7 +37,11 @@ App.propTypes = {
 };
 
 const mapStateToProps = ({ fake }) => ({ fake });
-const mapDispatchToProps = dispatch => ({ fakeAction:
-  () => dispatch(fakeAction())
+
+
+const mapDispatchToProps = dispatch => ({ 
+  fakeAction: () => dispatch(fakeAction())
 });
+
+
 export default connect(mapStateToProps, mapDispatchToProps)(App);
