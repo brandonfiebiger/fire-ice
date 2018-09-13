@@ -33,10 +33,6 @@ class App extends Component {
         {loading ? <img src='./wolf.gif'/> : <p></p>}
           <img src={logo} className='App-logo' alt='logo' />
           <h2>Welcome to Westeros</h2>
-          <button onClick={() => {
-            this.props.fakeAction();
-            alert(this.props.fake);
-          }}> FAKE ACTION</button>
         </div>
         <div className='Display-info'>
           <CardContainer />
@@ -55,7 +51,6 @@ const mapStateToProps = ({ fake }) => ({ fake });
 
 
 const mapDispatchToProps = dispatch => ({ 
-  fakeAction: () => dispatch(fakeAction()),
   getGames: (games) => dispatch(getGamesOfThrones(games))
 });
 
